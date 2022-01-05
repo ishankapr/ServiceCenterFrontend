@@ -1,20 +1,28 @@
-<div class="row">
-    
-    <div class="col-sm-4" *ngFor="let customer of customers">
-    <div class="card text-center">
-        <div class="card-header">
-          {{ customer.name }}
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text" *ngIf="customer.isConnected">Now you are connected with {{ customer.connectedEngineer }}</p>
-          <button class="btn btn-primary" (click)="connectEngineer(customer)">Connect</button>
-        </div>
-        <div class="card-footer text-muted">
-        </div>
-      </div>
+<div class="row text-center" *ngIf="isAllEngineersBusy">
+    <div class="warning"></div>
+    <div class="alert alert-warning alert-dismissible fade show">
+        <strong>All service engineers are busy right now.. please wait..</strong>
     </div>
 </div>
+
+<table class="table table-striped fixed">
+    <thead>
+    <tr>
+      <th class="align-center twenty">Customer</th>
+      <th class="align-center twenty">Connect</th>
+      <th class="align-center sixty">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers">
+      <td class="align-center twenty">{{ customer.name }}</td>
+      <td class="align-center twenty"><button class="btn" [ngClass]="{'btn-warning': customer.isConnected, 'btn-primary': !customer.isConnected }" [disabled]='customer.isConnected' (click)="connectEngineer(customer)">Connect</button></td>
+      <td *ngIf="customer.isConnected" class="align-center sixty">{{ customer.name }} is now connected with {{ customer.connectedEngineer }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
 
 
 

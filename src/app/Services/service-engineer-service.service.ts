@@ -23,7 +23,7 @@ export class ServiceEngineerServiceService {
 
   public disconnectEngineer(customer: Customer)
   {
-    return this.http.post<boolean>(environment.baseUrl.concat("connect"), customer, httpOptions);
+    return this.http.post<boolean>(environment.baseUrl.concat("disconnect"), customer, httpOptions);
   }
 
 }

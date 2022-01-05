@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       },
       {
           "name": "Rick (Customer 2)",
-          "category": 1,
+          "category": 2,
           "languageLevel" : 1,
           "connectedEngineer": "",
           "isConnected": false
@@ -34,6 +34,8 @@ export class HomeComponent implements OnInit {
       }
   ] 
 
+  isAllEngineersBusy: boolean = false
+
   constructor(private _engineerService: ServiceEngineerServiceService) {  }
 
   ngOnInit(): void {
@@ -42,34 +44,15 @@ export class HomeComponent implements OnInit {
 
   public connectEngineer(customer: Customer)
   {
-    console.log(customer)
-     var response = this._engineerService.connectEngineer(customer).subscribe(
+      this._engineerService.connectEngineer(customer).subscribe(
             data => {
-              console.log(data)
-              console.log(response)
-              debugger
-              if(data)
-              {
                 var index = this.customers.indexOf(customer,0)       
                 this.customers[index].connectedEngineer = data.connectedEngineer
-                this.customers[index].isConnected = true
-              }
-                  
+                this.customers[index].isConnected = data.isConnected
+                this.isAllEngineersBusy = data.isAllEngineersBusy
              },
             error => {
               console.error("Error connecting engineer!");
-             });
-  }
-
-  public disconnectEngineer(customer: Customer)
-  {
-    console.log(customer)
-     var response = this._engineerService.disconnectEngineer(customer).subscribe(
-            data => {
-              console.log(data)           
-             },
-            error => {
-              console.error("Error connectin engineer!");
              });
   }
 }
