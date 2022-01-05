@@ -16,7 +16,7 @@
     <tbody>
     <tr *ngFor="let customer of customers">
       <td class="align-center twenty">{{ customer.name }}</td>
-      <td class="align-center twenty"><button class="btn" [ngClass]="{'btn-warning': customer.isConnected, 'btn-primary': !customer.isConnected }" [disabled]='customer.isConnected' (click)="connectEngineer(customer)">Connect</button></td>
+      <td class="align-center twenty"><button class="btn" [ngClass]="{'btn-warning': customer.isConnected, 'btn-primary': !customer.isConnected }" [disabled]='customer.isConnected' (click)="connectEngineer(customer)" >{{ customer.isConnected ? 'Connected' : 'Connect'}}</button></td>
       <td *ngIf="customer.isConnected" class="align-center sixty">{{ customer.name }} is now connected with {{ customer.connectedEngineer }}</td>
     </tr>
     </tbody>
