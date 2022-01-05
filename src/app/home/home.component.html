@@ -1,0 +1,21 @@
+<div class="row">
+    
+    <div class="col-sm-4" *ngFor="let customer of customers">
+    <div class="card text-center">
+        <div class="card-header">
+          {{ customer.name }}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text" *ngIf="customer.isConnected">Now you are connected with {{ customer.connectedEngineer }}</p>
+          <button class="btn btn-primary" (click)="connectEngineer(customer)">Connect</button>
+        </div>
+        <div class="card-footer text-muted">
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
