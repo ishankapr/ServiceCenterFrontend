@@ -18,12 +18,8 @@ export class ServiceEngineerServiceService {
 
   public connectEngineer(customer: Customer): Observable<ServiceEngineerResponse> 
   {
+    /* Make Http request from backend to connnect engineer for the customer */
     return this.http.post<ServiceEngineerResponse>(environment.baseUrl.concat("connect"), customer, httpOptions);
-  }
-
-  public disconnectEngineer(customer: Customer)
-  {
-    return this.http.post<boolean>(environment.baseUrl.concat("disconnect"), customer, httpOptions);
   }
 
 }

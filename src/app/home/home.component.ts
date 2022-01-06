@@ -10,6 +10,8 @@ import { ServiceEngineerServiceService } from '../Services/service-engineer-serv
 })
 export class HomeComponent implements OnInit {
 
+  /*  Mock data to load and test aplication  */
+  
   customers = [
       {
           "name": "Jhon (Customer 1)",
@@ -87,6 +89,7 @@ export class HomeComponent implements OnInit {
 
   public connectEngineer(customer: Customer)
   {
+    /* connect to an engineer for a customer */
       this._engineerService.connectEngineer(customer).subscribe(
             data => {
                 var index = this.customers.indexOf(customer,0)       
