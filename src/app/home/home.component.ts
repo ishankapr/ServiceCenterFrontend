@@ -31,7 +31,50 @@ export class HomeComponent implements OnInit {
           "languageLevel" : 2,
           "connectedEngineer": "",
           "isConnected": false
+      },
+      {
+          "name": "Maxwell (Customer 4)",
+          "category": 3,
+          "languageLevel" : 3,
+          "connectedEngineer": "",
+          "isConnected": false
+      },
+      {
+          "name": "Paul (Customer 5)",
+          "category": 1,
+          "languageLevel" : 2,
+          "connectedEngineer": "",
+          "isConnected": false
+      },
+      {
+          "name": "Richard (Customer 6)",
+          "category": 2,
+          "languageLevel" : 2,
+          "connectedEngineer": "",
+          "isConnected": false
+      },
+      {
+        "name": "River (Customer 7)",
+          "category": 0,
+          "languageLevel" : 1,
+          "connectedEngineer": "",
+          "isConnected": false
+      },
+      {
+        "name": "Alex (Customer 8)",
+          "category": 0,
+          "languageLevel" : 2,
+          "connectedEngineer": "",
+          "isConnected": false
+      },
+      {
+        "name": "Mitchel (Customer 9)",
+          "category": 1,
+          "languageLevel" : 2,
+          "connectedEngineer": "",
+          "isConnected": false
       }
+
   ] 
 
   isAllEngineersBusy: boolean = false
